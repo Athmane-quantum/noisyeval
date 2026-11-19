@@ -13,7 +13,7 @@ expected distribution, together with its real cost.
 
 ## Status
 
-**Prototype (November 2026):** 3 tasks, 1 AI model, ideal simulator + IBM Quantum (free Open Plan).
+**Prototype (November 2026):** 3 tasks, 1 AI model, ideal simulator + one run on real IBM hardware.
 
 The funded version targets about 20 tasks, 3 AI models with frozen versions, and 3 hardware
 technologies (IBM, IQM, Rigetti, plus IonQ on a subset), with the cost per valid result in dollars.
@@ -45,11 +45,13 @@ or a depth above 50: this protects the hardware budget.
 
 | Model | Task | Code ran | Distance, simulator | Distance, IBM hardware | IBM job ID |
 |---|---|---|---|---|---|
-| claude-opus-5-5 | bell | yes | 0.6 % | _pending_ | _pending_ |
+| claude-opus-5-5 | bell | yes | 0.6 % | 7.8 % | `dbvf6ohcn7vc73egpn9g` |
 | claude-opus-5-5 | ghz3 | yes | 0.4 % | — | — |
 | claude-opus-5-5 | bb84_x1 | yes | 0.0 % | — | — |
 
-4,000 shots per run. Raw rows in `results/results.csv`.
+4,000 shots per run. IBM backend: `ibm_fez` (November 19, 2026). Raw rows in `results/results.csv`.
+
+On the ideal simulator the Bell circuit lands 0.6 % away from the expected distribution; on real IBM hardware the same unedited circuit lands 7.8 % away. That gap is what NoisyEval measures.
 
 ## Reproduce
 
@@ -66,6 +68,12 @@ python scripts/evaluate.py --ibm bell   # also run 'bell' on IBM hardware (needs
 - The generated code comes from a chat session, saved unedited; the funded version calls model APIs
   automatically with frozen versions and published prompts.
 - Generated code is executed locally: read it before running it.
+
+## About the author
+
+- First place, Qiskit Fall Fest 2026 Stuttgart (intermediate/advanced track)
+- Merged open-source contribution to Qibo: https://github.com/qiboteam/qibo/pull/1905
+- BB84 simulator with DOI: https://github.com/Athmane-quantum/bb84-sim
 
 ## License
 
