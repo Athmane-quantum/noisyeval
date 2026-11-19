@@ -1,0 +1,7 @@
+{
+  "id": "bell",
+  "description": "Prepare the Bell state (|00> + |11>)/sqrt(2) and measure both qubits.",
+  "prompt": "Write a Python function named build_circuit() that takes no arguments and returns a qiskit QuantumCircuit with exactly 2 qubits. The circuit must prepare the Bell state (|00> + |11>)/sqrt(2) starting from |00>, then measure both qubits into classical bits. Use only the qiskit package. Return the circuit; do not run it. Answer with the code only.",
+  "n_qubits": 2,
+  "expected": {"00": 0.5, "11": 0.5}
+}

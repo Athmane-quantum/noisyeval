@@ -1,0 +1,7 @@
+{
+  "id": "ghz3",
+  "description": "Prepare the 3-qubit GHZ state (|000> + |111>)/sqrt(2) and measure all qubits.",
+  "prompt": "Write a Python function named build_circuit() that takes no arguments and returns a qiskit QuantumCircuit with exactly 3 qubits. The circuit must prepare the GHZ state (|000> + |111>)/sqrt(2) starting from |000>, then measure all 3 qubits into classical bits. Use only the qiskit package. Return the circuit; do not run it. Answer with the code only.",
+  "n_qubits": 3,
+  "expected": {"000": 0.5, "111": 0.5}
+}

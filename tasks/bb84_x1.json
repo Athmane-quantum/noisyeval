@@ -1,0 +1,7 @@
+{
+  "id": "bb84_x1",
+  "description": "BB84: Alice encodes bit 1 in the X (diagonal) basis, Bob measures in the X basis and must read 1.",
+  "prompt": "Write a Python function named build_circuit() that takes no arguments and returns a qiskit QuantumCircuit with exactly 1 qubit. It simulates one round of the BB84 protocol: Alice encodes the bit 1 in the diagonal (X) basis, so the qubit is prepared in the state |->. Bob then measures this qubit in the same diagonal (X) basis and stores the result in a classical bit, where the outcome |+> is read as 0 and |-> is read as 1. Use only the qiskit package. Return the circuit; do not run it. Answer with the code only.",
+  "n_qubits": 1,
+  "expected": {"1": 1.0}
+}
