@@ -7,16 +7,17 @@ check whether the code is valid or whether its output is right on an ideal, nois
 A 2026 review of generative AI for quantum code (Merilehto, arXiv:2603.16216) notes that end-to-end
 evaluation on real quantum hardware is missing.
 
-NoisyEval closes that gap on a small scale: each task is given to an AI model, the generated circuit is
-run unedited on a simulator and on a real quantum processor, and the result is compared with the
+NoisyEval is an early pilot designed to investigate this missing evaluation layer: each task is given to an AI model,
+the generated code is kept without manual edits (each backend still applies its own required compilation and
+transpilation), it runs on a simulator and on a real quantum processor, and the result is compared with the
 expected distribution, together with its real cost.
 
 ## Status
 
 **Prototype (November 2026):** 3 tasks, 1 AI model, ideal simulator + one run on real IBM hardware.
 
-The funded version targets about 20 tasks, 3 AI models with frozen versions, and 3 hardware
-technologies (IBM, IQM, Rigetti, plus IonQ on a subset), with the cost per valid result in dollars.
+The funded version targets about 20 tasks, 3 AI models with frozen versions, and 4 hardware
+providers across two physical modalities (superconducting: IBM, IQM, Rigetti; trapped ions: IonQ, on a subset), with the cost per valid result in dollars.
 
 ## Tasks
 
@@ -51,7 +52,7 @@ or a depth above 50: this protects the hardware budget.
 
 4,000 shots per run. IBM backend: `ibm_fez` (November 19, 2026). Raw rows in `results/results.csv`.
 
-On the ideal simulator the Bell circuit lands 0.6 % away from the expected distribution; on real IBM hardware the same unedited circuit lands 7.8 % away. That gap is what NoisyEval measures.
+On the ideal simulator the Bell circuit lands 0.6 % away from the expected distribution; on real IBM hardware the same circuit, without manual edits, lands 7.8 % away. That gap is what NoisyEval measures.
 
 ## Reproduce
 
@@ -72,7 +73,8 @@ python scripts/evaluate.py --ibm bell   # also run 'bell' on IBM hardware (needs
 ## About the author
 
 - First place, Qiskit Fall Fest 2026 Stuttgart (intermediate/advanced track)
-- Merged open-source contribution to Qibo: https://github.com/qiboteam/qibo/pull/1905
+- First place, Barcelona local round of the Qollab × IonQ Global Hackathon 2026, with *Closed Loop Phase Keys*
+- Merged documentation contribution to Qibo: https://github.com/qiboteam/qibo/pull/1905
 - BB84 simulator with DOI: https://github.com/Athmane-quantum/bb84-sim
 
 ## License
